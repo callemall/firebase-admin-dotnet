@@ -119,6 +119,17 @@ namespace FirebaseAdmin.Messaging
         public string ChannelId { get; set; }
 
         /// <summary>
+        /// Gets or sets the number of items this notification represents. May be displayed as a badge count
+        /// for launchers that support badging. For example, this might be useful if you're using just
+        /// one notification to represent multiple new messages but you want the count here to
+        /// represent the number of total new messages. If zero or unspecified, systems that support
+        /// badging use the default, which is to increment a number displayed on the long-press menu
+        /// each time a notification arrives.
+        /// </summary>
+        [JsonProperty("notification_count")]
+        public int NotificationCount { get; set; }
+
+        /// <summary>
         /// Copies this notification, and validates the content of it to ensure that it can be
         /// serialized into the JSON format expected by the FCM service.
         /// </summary>
@@ -139,6 +150,7 @@ namespace FirebaseAdmin.Messaging
                 BodyLocKey = this.BodyLocKey,
                 BodyLocArgs = this.BodyLocArgs?.ToList(),
                 ChannelId = this.ChannelId,
+                NotificationCount = this.NotificationCount,
             };
             if (copy.Color != null && !Regex.Match(copy.Color, "^#[0-9a-fA-F]{6}$").Success)
             {
