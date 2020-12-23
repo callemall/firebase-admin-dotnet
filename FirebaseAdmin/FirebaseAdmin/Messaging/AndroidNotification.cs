@@ -128,12 +128,6 @@ namespace FirebaseAdmin.Messaging
         /// </summary>
         [JsonProperty("notification_count")]
         public int NotificationCount { get; set; }
-        
-        /// <summary>
-        /// Gets or sets hey
-        /// </summary>
-        [JsonProperty("notification_count_2")]
-        public int NotificationCount2 { get; set; }
 
         /// <summary>
         /// Copies this notification, and validates the content of it to ensure that it can be
